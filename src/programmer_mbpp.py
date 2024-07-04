@@ -45,15 +45,15 @@ construct_few_shot_prompt
 Your code should pass these tests:
 ```python
 {tests}
-```
+```      
 """
     try:
         completions = openai.ChatCompletion.create(
             model = model,
             stream=False,
             messages=[
-        {"role": "system", "content": "You are a code developer."},
-        {"role": "user", "content":text},
+                {"role": "system", "content": "You are a code developer."},
+                {"role": "user", "content": text},
             ],
             request_timeout=100,
         )
@@ -144,3 +144,5 @@ if __name__ == "__main__":
 
             with open(f"./dataset/{model}_mbpp.json", "w") as f:
                 json.dump(dataset, f, indent=4)
+
+

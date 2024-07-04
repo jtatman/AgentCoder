@@ -51,8 +51,8 @@ def fetch_completion(data_entry, model, lg,times=5):
                     model="gpt-3.5-turbo-1106",
                     stream=False,
                     messages=[
-                {"role": "system", "content": "You are a code developer assistant."},
-                {"role": "user", "content":text},
+                        {"role": "system", "content": "You are a code developer assistant."},
+                        {"role": "user", "content": text},
                     ],
                     request_timeout=100,
                 )

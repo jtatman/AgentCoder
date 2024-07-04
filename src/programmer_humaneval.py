@@ -9,8 +9,8 @@ import concurrent.futures
 import time
 from datasets import load_dataset
 # Setting API parameters
-openai.api_base = "https://api.aiohub.org/v1"
-openai.api_key = 'YOUR API KEY'
+openai.api_base = "http://10.209.1.171:8080/v1"
+openai.api_key ='ketchup'
 
 dataset = load_dataset("openai_humaneval",split="test")
 dataset = [entry for entry in dataset]
@@ -50,8 +50,8 @@ def fetch_completion(data_entry, model,lg,times = 5):
                     model=model,
                     stream=False,
                     messages=[
-                {"role": "system", "content": "You are a software programmer."},
-                {"role": "user", "content":text},
+                        {"role": "system", "content": "You are a software programmer."},
+                        {"role": "user", "content": text},
                     ],
                     request_timeout=100,
                 )
@@ -103,3 +103,5 @@ if __name__ == "__main__":
                         print(repr(e))
             with open(f"./dataset/{model}_{lg}.json", "w") as f:
                 json.dump(dataset, f, indent=4)
+
+
